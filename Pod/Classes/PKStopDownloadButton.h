@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "PKCircleProgressView.h"
+#import "PKBorderedButton.h"
 
 IB_DESIGNABLE
 @interface PKStopDownloadButton : PKCircleProgressView
 
 @property (nonatomic, assign) IBInspectable CGFloat stopButtonWidth;
-@property (nonatomic, weak, readonly) UIButton *stopButton;
+@property (nonatomic, weak, readonly) PKBorderedButton *stopButton;
+
+- (instancetype)initWithPauseCapability:(bool)pauseCapability;
 
 @end

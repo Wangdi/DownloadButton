@@ -30,6 +30,7 @@ static NSDictionary *HighlitedTitleAttributes() {
 @property (nonatomic, weak) PKPendingView *pendingView;
 
 @property (nonatomic, strong) NSMutableArray *stateViews;
+@property (nonatomic, assign) BOOL canPause;
 
 - (PKBorderedButton *)createStartDownloadButton;
 - (PKStopDownloadButton *)createStopDownloadButton;
@@ -49,6 +50,7 @@ static PKDownloadButton *CommonInit(PKDownloadButton *self) {
         [self addConstraints:[self createConstraints]];
         
         self.state = kPKDownloadButtonState_StartDownload;
+        self.canPause = true;
     }
     return self;
 }
@@ -127,7 +129,7 @@ static PKDownloadButton *CommonInit(PKDownloadButton *self) {
 }
 
 - (PKStopDownloadButton *)createStopDownloadButton {
-    PKStopDownloadButton *stopDownloadButton = [[PKStopDownloadButton alloc] init];
+    PKStopDownloadButton *stopDownloadButton = [[PKStopDownloadButton alloc] initWithPauseCapability:true];
     [stopDownloadButton.stopButton addTarget:self action:@selector(currentButtonTapped:)
                             forControlEvents:UIControlEventTouchUpInside];
     return stopDownloadButton;

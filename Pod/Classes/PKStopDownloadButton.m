@@ -14,18 +14,19 @@ static const CGFloat kDefaultStopButtonWidth = 8.f;
 
 @interface PKStopDownloadButton ()
 
-@property (nonatomic, weak) UIButton *stopButton;
+@property (nonatomic, weak) PKBorderedButton *stopButton;
+@property (nonatomic, assign) BOOL canPause;
 
-- (UIButton *)createStopButton;
+- (PKBorderedButton *)createStopButton;
 - (NSArray *)createStopButtonConstraints;
 - (void)updateAppearance;
 - (PKCircleProgressView *)createCircleProgressView;
 
 @end
 
-static PKStopDownloadButton *CommonInit(PKStopDownloadButton *self) {
+static PKStopDownloadButton *CommonInit(PKStopDownloadButton *self, BOOL canPause) {
     if (self != nil) {
-        UIButton *stopButton = [self createStopButton];
+        PKBorderedButton *stopButton = [self createStopButton];
         stopButton.translatesAutoresizingMaskIntoConstraints = NO;
         [self addSubview:stopButton];
         self.stopButton = stopButton;
@@ -39,30 +40,36 @@ static PKStopDownloadButton *CommonInit(PKStopDownloadButton *self) {
 
 @implementation PKStopDownloadButton
 
+
+
 #pragma mark - properties
 
 - (void)setStopButtonWidth:(CGFloat)stopButtonWidth {
     _stopButtonWidth = stopButtonWidth;
-    [self.stopButton setImage:[UIImage stopImageOfSize:stopButtonWidth
-                                                 color:self.tintColor]
-                     forState:UIControlStateNormal];
+    //[self.stopButton setImage:[UIImage stopImageOfSize:stopButtonWidth color:self.tintColor] forState:UIControlStateNormal];
+    //[self.stopButton setImage:[UIImage imageNamed:@"pause_download"] forState:UIControlStateNormal];
+    [self.stopButton setImage:[UIImage pauseImageOfSize:_stopButtonWidth color:self.tintColor] forState:UIControlStateNormal];
     [self setNeedsDisplay];
 }
 
 #pragma mark - initialization
 
 - (instancetype)initWithCoder:(NSCoder *)decoder {
-    return CommonInit([super initWithCoder:decoder]);
+    return CommonInit([super initWithCoder:decoder], false);
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
-    return CommonInit([super initWithFrame:frame]);
+    return CommonInit([super initWithFrame:frame], false);
+}
+
+- (instancetype)initWithPauseCapability:(bool)pauseCapability {
+    return CommonInit([super init], true);
 }
 
 #pragma mark - private methods
 
-- (UIButton *)createStopButton {
-    UIButton *stopButton = [UIButton buttonWithType:UIButtonTypeCustom];
+- (PKBorderedButton *)createStopButton {
+    PKBorderedButton *stopButton = [PKBorderedButton buttonWithType:UIButtonTypeCustom];
 	stopButton.tintColor = [UIColor clearColor];
     _stopButtonWidth = kDefaultStopButtonWidth;
     return stopButton;
@@ -85,8 +92,10 @@ static PKStopDownloadButton *CommonInit(PKStopDownloadButton *self) {
 #pragma mark - appearance
 
 - (void)updateAppearance {
-	[self.stopButton setImage:[UIImage stopImageOfSize:_stopButtonWidth color:self.tintColor]
-				forState:UIControlStateNormal];
+	//[self.stopButton setImage:[UIImage stopImageOfSize:_stopButtonWidth color:self.tintColor] forState:UIControlStateNormal];
+    //[self.stopButton setImage:[UIImage imageNamed:@"pause_download"] forState:UIControlStateNormal];
+    [self.stopButton setImage:[UIImage pauseImageOfSize:_stopButtonWidth color:self.tintColor] forState:UIControlStateNormal];
+
 }
 
 - (void)tintColorDidChange {
