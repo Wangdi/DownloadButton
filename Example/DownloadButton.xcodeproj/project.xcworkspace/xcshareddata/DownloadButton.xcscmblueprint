@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8424A847A65C6A1E7DB7E5A0CAE33E30BD9CD3E0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "76357E460B145E3D2EC958CDBF3EC6B5FD4E99AB" : 0,
+    "8424A847A65C6A1E7DB7E5A0CAE33E30BD9CD3E0" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "83C62D6D-D9CD-4F4B-BF46-17F4D28BEB47",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "76357E460B145E3D2EC958CDBF3EC6B5FD4E99AB" : "..",
+    "8424A847A65C6A1E7DB7E5A0CAE33E30BD9CD3E0" : "DownloadButton\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "DownloadButton",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/DownloadButton.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/accedo\/teachco-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "76357E460B145E3D2EC958CDBF3EC6B5FD4E99AB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:xlsmearlx\/DownloadButton.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8424A847A65C6A1E7DB7E5A0CAE33E30BD9CD3E0"
+    }
+  ]
+}

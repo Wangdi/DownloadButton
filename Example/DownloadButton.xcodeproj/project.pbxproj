@@ -223,12 +223,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "DownloadButton_Example" */;
 			buildPhases = (
-				B6CB29F0601722BB49BDEC13 /* Check Pods Manifest.lock */,
+				B6CB29F0601722BB49BDEC13 /* [CP] Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				A8A60B7C722A4F3865CC307C /* Embed Pods Frameworks */,
-				0ED25D569A6B2A0C12275546 /* Copy Pods Resources */,
+				A8A60B7C722A4F3865CC307C /* [CP] Embed Pods Frameworks */,
+				0ED25D569A6B2A0C12275546 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -243,12 +243,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "DownloadButton_Tests" */;
 			buildPhases = (
-				880CE9AE0BA01C6F49694E1E /* Check Pods Manifest.lock */,
+				880CE9AE0BA01C6F49694E1E /* [CP] Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				3C938EED788B4901D3879902 /* Embed Pods Frameworks */,
-				BE692D0B5CCEF708D9C8DB8F /* Copy Pods Resources */,
+				3C938EED788B4901D3879902 /* [CP] Embed Pods Frameworks */,
+				BE692D0B5CCEF708D9C8DB8F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -317,14 +317,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0ED25D569A6B2A0C12275546 /* Copy Pods Resources */ = {
+		0ED25D569A6B2A0C12275546 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,14 +332,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DownloadButton_Example/Pods-DownloadButton_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3C938EED788B4901D3879902 /* Embed Pods Frameworks */ = {
+		3C938EED788B4901D3879902 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,14 +347,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DownloadButton_Tests/Pods-DownloadButton_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		880CE9AE0BA01C6F49694E1E /* Check Pods Manifest.lock */ = {
+		880CE9AE0BA01C6F49694E1E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,14 +362,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A8A60B7C722A4F3865CC307C /* Embed Pods Frameworks */ = {
+		A8A60B7C722A4F3865CC307C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,14 +377,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DownloadButton_Example/Pods-DownloadButton_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B6CB29F0601722BB49BDEC13 /* Check Pods Manifest.lock */ = {
+		B6CB29F0601722BB49BDEC13 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,14 +392,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		BE692D0B5CCEF708D9C8DB8F /* Copy Pods Resources */ = {
+		BE692D0B5CCEF708D9C8DB8F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -559,7 +559,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DownloadButton/DownloadButton-Prefix.pch";
 				INFOPLIST_FILE = "DownloadButton/DownloadButton-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -575,7 +575,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DownloadButton/DownloadButton-Prefix.pch";
 				INFOPLIST_FILE = "DownloadButton/DownloadButton-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

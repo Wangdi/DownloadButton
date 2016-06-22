@@ -1,11 +1,11 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'DownloadButton_Example', :exclusive => true do
+target 'DownloadButton_Example' do
   pod "DownloadButton", :path => "../"
 end
 
-target 'DownloadButton_Tests', :exclusive => true do
+target 'DownloadButton_Tests' do
   pod "DownloadButton", :path => "../"
 
   pod 'Specta'
