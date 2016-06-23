@@ -10,6 +10,12 @@
 #import "PKCircleProgressView.h"
 #import "PKBorderedButton.h"
 
+typedef NS_ENUM(NSUInteger, PKStopButtonType) {
+    kPKStopButtonType_Stop,
+    kPKStopButtonType_Pause,
+    kPKStopButtonType_Resume
+};
+
 IB_DESIGNABLE
 @interface PKStopDownloadButton : PKCircleProgressView
 
@@ -17,5 +23,6 @@ IB_DESIGNABLE
 @property (nonatomic, weak, readonly) PKBorderedButton *stopButton;
 
 - (instancetype)initWithPauseCapability:(bool)pauseCapability;
+- (instancetype)initWithButtonType:(PKStopButtonType)buttonType;
 
 @end

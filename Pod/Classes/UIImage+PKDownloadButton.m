@@ -27,7 +27,7 @@
 }
 
 + (UIImage *)pauseImageOfSize:(CGFloat)size color:(UIColor *)color {
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(size, size), true, 1.0f);
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(size, size), NO, 1.0f);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     [color setStroke];
@@ -38,12 +38,31 @@
     CGContextFillRect(context, line1);
     CGContextStrokeRect(context, line1);
     
-    
     CGRect line2 = CGRectMake(size * 2/3 , 0.f, size/3, size);
     CGContextAddRect(context, line2);
     CGContextFillRect(context, line2);
     CGContextStrokeRect(context, line2);
 
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    return image;
+}
+
++ (UIImage *)playImageOfSize:(CGFloat)size color:(UIColor *)color {
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(size, size), NO, 1.0f);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextClearRect(context,CGRectMake(0, 0, size, size));
+    [color setStroke];
+    [color setFill];
+
+    CGContextMoveToPoint(context, 0, 0);
+    CGContextAddLineToPoint(context, size, size / 2);
+    CGContextAddLineToPoint(context, 0, size);
+    CGContextAddLineToPoint(context, 0, 0);
+    CGContextFillPath(context);
+    
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     
     UIGraphicsEndImageContext();

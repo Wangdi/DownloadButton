@@ -10,10 +10,8 @@
 
 @interface CALayer (PKDownloadButtonAnimations)
 
-- (void)addRotationAnimationWithKey:(NSString *)animationKey
-               fullRotationDuration:(NSTimeInterval)fullRotationDuration;
+- (void)addRotationAnimationWithKey:(NSString *)animationKey fullRotationDuration:(NSTimeInterval)fullRotationDuration;
 - (void)removeRotationAnimationWithKey:(NSString *)animationKey;
-- (void)removeRotationAnimationWithKey:(NSString *)animationKey
-                  fullRotationDuration:(NSTimeInterval)fullRotationDuration;
+- (void)removeRotationAnimationWithKey:(NSString *)animationKey fullRotationDuration:(NSTimeInterval)fullRotationDuration;
 
 @end

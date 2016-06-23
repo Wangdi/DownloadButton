@@ -26,6 +26,7 @@ static NSDictionary *HighlitedTitleAttributes() {
 
 @property (nonatomic, weak) PKBorderedButton *startDownloadButton;
 @property (nonatomic, weak) PKStopDownloadButton *stopDownloadButton;
+@property (nonatomic, weak) PKStopDownloadButton *resumeDownloadButton;
 @property (nonatomic, weak) PKBorderedButton *downloadedButton;
 @property (nonatomic, weak) PKPendingView *pendingView;
 
@@ -33,7 +34,7 @@ static NSDictionary *HighlitedTitleAttributes() {
 @property (nonatomic, assign) BOOL canPause;
 
 - (PKBorderedButton *)createStartDownloadButton;
-- (PKStopDownloadButton *)createStopDownloadButton;
+- (PKStopDownloadButton *)createStopDownloadButtonWithType:(PKStopButtonType)buttonType;
 - (PKBorderedButton *)createDownloadedButton;
 - (PKPendingView *)createPendingView;
 
@@ -46,11 +47,12 @@ static NSDictionary *HighlitedTitleAttributes() {
 
 static PKDownloadButton *CommonInit(PKDownloadButton *self) {
     if (self != nil) {
+        self.canPause = true;
         [self createSubviews];
         [self addConstraints:[self createConstraints]];
         
         self.state = kPKDownloadButtonState_StartDownload;
-        self.canPause = true;
+        
     }
     return self;
 }
@@ -80,6 +82,13 @@ static PKDownloadButton *CommonInit(PKDownloadButton *self) {
             break;
         case kPKDownloadButtonState_Downloaded:
             self.downloadedButton.hidden = NO;
+            break;
+        case kPKDownloadButtonState_Paused:
+            if (self.canPause) {
+                self.resumeDownloadButton.hidden = NO;
+            } else {
+                self.stopDownloadButton.hidden = NO;
+            }
             break;
         default:
             NSAssert(NO, @"unsupported state");
@@ -128,10 +137,9 @@ static PKDownloadButton *CommonInit(PKDownloadButton *self) {
     return startDownloadButton;
 }
 
-- (PKStopDownloadButton *)createStopDownloadButton {
-    PKStopDownloadButton *stopDownloadButton = [[PKStopDownloadButton alloc] initWithPauseCapability:true];
-    [stopDownloadButton.stopButton addTarget:self action:@selector(currentButtonTapped:)
-                            forControlEvents:UIControlEventTouchUpInside];
+- (PKStopDownloadButton *)createStopDownloadButtonWithType:(PKStopButtonType)buttonType {
+    PKStopDownloadButton *stopDownloadButton = [[PKStopDownloadButton alloc] initWithButtonType:buttonType];
+    [stopDownloadButton.stopButton addTarget:self action:@selector(currentButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     return stopDownloadButton;
 }
 
@@ -141,9 +149,7 @@ static PKDownloadButton *CommonInit(PKDownloadButton *self) {
 
 	[self updateButton:downloadedButton title:@"REMOVE"];
     
-    [downloadedButton addTarget:self
-                         action:@selector(currentButtonTapped:)
-               forControlEvents:UIControlEventTouchUpInside];
+    [downloadedButton addTarget:self action:@selector(currentButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     return downloadedButton;
 }
 
@@ -167,11 +173,17 @@ static PKDownloadButton *CommonInit(PKDownloadButton *self) {
     self.startDownloadButton = startDownloadButton;
     [self.stateViews addObject:startDownloadButton];
     
-    PKStopDownloadButton *stopDownloadButton = [self createStopDownloadButton];
+    PKStopDownloadButton *stopDownloadButton = [self createStopDownloadButtonWithType:self.canPause ? kPKStopButtonType_Pause : kPKStopButtonType_Stop];
     stopDownloadButton.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview:stopDownloadButton];
     self.stopDownloadButton = stopDownloadButton;
     [self.stateViews addObject:stopDownloadButton];
+    
+    PKStopDownloadButton *resumeDownloadButton = [self createStopDownloadButtonWithType:kPKStopButtonType_Resume];
+    resumeDownloadButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview:resumeDownloadButton];
+    self.resumeDownloadButton = resumeDownloadButton;
+    [self.stateViews addObject:resumeDownloadButton];
     
     PKBorderedButton *downloadedButton = [self createDownloadedButton];
     downloadedButton.translatesAutoresizingMaskIntoConstraints = NO;

@@ -17,7 +17,8 @@ typedef NS_ENUM(NSUInteger, PKDownloadButtonState) {
     kPKDownloadButtonState_StartDownload,
     kPKDownloadButtonState_Pending,
     kPKDownloadButtonState_Downloading,
-    kPKDownloadButtonState_Downloaded
+    kPKDownloadButtonState_Downloaded,
+    kPKDownloadButtonState_Paused
 };
 
 @class PKDownloadButton;
@@ -26,8 +27,7 @@ typedef void(^DownloadButtonTappedCallback)(PKDownloadButton *downloadButton, PK
 
 @protocol PKDownloadButtonDelegate <NSObject>
 
-- (void)downloadButtonTapped:(PKDownloadButton *)downloadButton
-                currentState:(PKDownloadButtonState)state;
+- (void)downloadButtonTapped:(PKDownloadButton *)downloadButton currentState:(PKDownloadButtonState)state;
 
 @end
 
@@ -39,6 +39,7 @@ IB_DESIGNABLE
 
 @property (nonatomic, weak, readonly) PKBorderedButton *startDownloadButton;
 @property (nonatomic, weak, readonly) PKStopDownloadButton *stopDownloadButton;
+@property (nonatomic, weak, readonly) PKStopDownloadButton *resumeDownloadButton;
 @property (nonatomic, weak, readonly) PKBorderedButton *downloadedButton;
 @property (nonatomic, weak, readonly) PKPendingView *pendingView;
 

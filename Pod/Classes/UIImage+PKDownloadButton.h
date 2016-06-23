@@ -12,7 +12,9 @@
 
 + (UIImage *)stopImageOfSize:(CGFloat)size color:(UIColor *)color;
 + (UIImage *)pauseImageOfSize:(CGFloat)size color:(UIColor *)color;
++ (UIImage *)playImageOfSize:(CGFloat)size color:(UIColor *)color;
 + (UIImage *)buttonBackgroundWithColor:(UIColor *)color;
 + (UIImage *)highlitedButtonBackgroundWithColor:(UIColor *)color;
+
 
 @end
