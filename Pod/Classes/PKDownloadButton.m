@@ -47,6 +47,7 @@ static NSDictionary *HighlitedTitleAttributes() {
 
 static PKDownloadButton *CommonInit(PKDownloadButton *self) {
     if (self != nil) {
+        self.tintColor = [UIColor clearColor];
         self.canPause = true;
         [self createSubviews];
         [self addConstraints:[self createConstraints]];
